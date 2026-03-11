@@ -6,7 +6,8 @@
   "scripts": {
     "doc": "typedoc",
     "test": "vitest run",
-    "coverage1": "vitest run --coverage --coverage.include src/ejercicio-1/JediMasterCollection.ts"
+    "coverage-ej2": "vitest run --coverage --coverage.include=\"src/ejercicio-2/**\"",
+    "coverage-ej3": "vitest run --coverage --coverage.include=\"src/ejercicio-3/**\""
   },
   "repository": {
     "type": "git",

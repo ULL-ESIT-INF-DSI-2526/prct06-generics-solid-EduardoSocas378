@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "doc": "typedoc",
-    "test": "vitest run"
+    "test": "vitest run",
+    "coverage1": "vitest run --coverage --coverage.include src/ejercicio-1/JediMasterCollection.ts"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/ULL-ESIT-INF-DSI-2526/prct06-generics-solid-EduardoSocas378#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-tsdoc": "^0.5.2",

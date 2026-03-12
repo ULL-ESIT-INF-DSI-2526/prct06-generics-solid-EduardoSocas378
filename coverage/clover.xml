@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1773317060660" clover="3.2.0">
-  <project timestamp="1773317060661" name="All files">
+<coverage generated="1773317649491" clover="3.2.0">
+  <project timestamp="1773317649491" name="All files">
     <metrics statements="37" coveredstatements="37" conditionals="16" coveredconditionals="16" methods="23" coveredmethods="23" elements="76" coveredelements="76" complexity="0" loc="37" ncloc="37" packages="1" files="4" classes="4"/>
     <file name="CookBook.ts" path="/home/usuario/prct06-generics-solid-EduardoSocas378/src/ejercicio-pe101/CookBook.ts">
       <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="8"/>

@@ -43,6 +43,7 @@ describe("Pruebas para el recetario CookBook", () => {
     expect(libroCocinitas.size()).toBe(initialSize);
   });
 
+  //comentario para push
   test("deberia filtrar las recetas y devolver un nuevo CookBook", () => {
     const filteredCookBook = libroCocinitas.filter(item => item.time() >= 100);
     expect(filteredCookBook.size()).toBe(1);

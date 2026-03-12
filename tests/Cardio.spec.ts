@@ -16,6 +16,7 @@ describe("Cardio", () => {
     const swim = new Cardio("Natación en piscina", 1.5, 45, "natación", 400);
     expect(swim.summary()).toBe("Natación en piscina (natación): 1.5 km en 45 min.");
   });
+  
 
   test("debería lanzar error si los valores son inválidos", () => {
     expect(() => new Cardio("Test", -1, 10, "remo", 100)).toThrowError("La distancia no puede ser negativa.");

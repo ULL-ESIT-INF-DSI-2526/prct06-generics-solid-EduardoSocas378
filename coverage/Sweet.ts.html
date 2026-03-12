@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for Strength.ts</title>
+    <title>Code coverage report for Sweet.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> Strength.ts</h1>
+        <h1><a href="index.html">All files</a> Sweet.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -32,7 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -122,7 +122,15 @@
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -153,7 +161,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">11x</span>
@@ -168,11 +176,19 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,64 +197,72 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Registrable } from "./Registrable";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Elaborable } from "./Elaborable";
 &nbsp;
 /**
- * Define la estructura del resumen para un entrenamiento de fuerza.
+ * Define la estructura de la descripcion para las recetas dulces
  */
-export type StrengthSummary = {
-  nombre: string;
-  peso: number;
+&nbsp;
+export type SweetDesc = {
+  name: string;
+  difficulty: number;
 };
 &nbsp;
 /**
- * Clase que representa un entrenamiento de fuerza.
- * Implementa la interfaz Registrable devolviendo un objeto en su resumen.
+ * Clase que representa las recetas elaborables dulces
+ * @implements {Elaborable&lt;SweetDesc&gt;} - Interfaz Registrable devolviendo un objeto SweetDesc.
  */
-export class Strength implements Registrable&lt;StrengthSummary&gt; {
+export class Sweet implements Elaborable&lt;SweetDesc&gt; {
   private readonly _name: string;
-  private readonly _weight: number;
-  private readonly _sets: number;
-  private readonly _reps: number;
-  private readonly _caloriesPerSet: number;
+  private readonly _difficulty: number;
+  private readonly _preparationTime: number;
+  private readonly _bakingTime: number;
+  private readonly _coolingTime: number;
 &nbsp;
   /**
-   * Crea una instancia de un entrenamiento de Fuerza.
-   * @param name - Nombre del ejercicio.
-   * @param weight - Peso utilizado en kilogramos (debe ser mayor o igual a 0).
-   * @param sets - Número de series realizadas (debe ser mayor a 0).
-   * @param reps - Número de repeticiones por serie (debe ser mayor a 0).
-   * @param caloriesPerSet - Calorías quemadas en cada serie (debe ser mayor o igual a 0).
-   * @throws {Error} Si algún parámetro numérico no cumple las validaciones.
+   * Creamos una instancia de una receta dulce
+   * @param name - Nombre de la receta
+   * @param difficulty - Dificultad de la receta del 0 al 10
+   * @param preparationTime - Tiempo de preparación de la receta.
+   * @param bakingTime - Tiempo de horneado de la receta.
+   * @param coolingTime - Tiempo de enfriamiento de la receta tras el horneado.
    */
-  constructor(name: string, weight: number, sets: number, reps: number, caloriesPerSet: number) {
-    if (weight &lt; 0) throw new Error("El peso no puede ser negativo.");
-    if (sets &lt;= 0) throw new Error("El número de series debe ser mayor que cero.");
-    if (reps &lt;= 0) throw new Error("El número de repeticiones debe ser mayor que cero.");
-    if (caloriesPerSet &lt; 0) throw new Error("Las calorías por serie no pueden ser negativas.");
+  constructor(name: string, difficulty: number, preparationTime:number, bakingTime:number, coolingTime:number){
+    if (difficulty &lt; 0 || difficulty &gt; 10) throw new Error("La dificultad debe ser un valor entre 0 y 10")
+    if (preparationTime &lt; 0) throw new Error ("El tiempo de preparacion no puede ser negativo");
+    if (bakingTime &lt; 0) throw new Error ("El tiempo de horneado no puede ser negativo");
+    if (coolingTime &lt; 0) throw new Error ("El tiempo de enfriamiento no puede ser negativo");
 &nbsp;
     this._name = name;
-    this._weight = weight;
-    this._sets = sets;
-    this._reps = reps;
-    this._caloriesPerSet = caloriesPerSet;
+    this._difficulty = difficulty;
+    this._preparationTime = preparationTime;
+    this._bakingTime = bakingTime;
+    this._coolingTime = coolingTime;
   }
 &nbsp;
-  get name(): string { return this._name; }
-  get weight(): number { return this._weight; }
-  get sets(): number { return this._sets; }
-  get reps(): number { return this._reps; }
-  get caloriesPerSet(): number { return this._caloriesPerSet; }
+  get name(): string {return this._name}
+  get difficulty(): number {return this._difficulty}
+  get preparationTime(): number {return this._preparationTime}
+  get bakingTime():number {return this._bakingTime}
+  get coolingTime():number {return this._coolingTime}
 &nbsp;
-  summary(): StrengthSummary {
+  /**
+   * propiedad desc de Elaborable para la clase Sweet
+   * @returns - objeto de tipo SweetDesc
+   */
+  desc(): SweetDesc {
     return {
-      nombre: this.name,
-      peso: this.weight
+      name: this.name,
+      difficulty: this.difficulty
     };
   }
 &nbsp;
-  calories(): number {
-    return this.sets * this.caloriesPerSet;
+  /**
+   * propiedad time de Elaborable para la clase Sweet
+   * @returns - suma de todos los tiempos de los atributos de la clase Sweet
+   */
+  time(): number {
+    return this.preparationTime + this.bakingTime + this.coolingTime;
   }
 }</pre></td></tr></table></pre>
 
@@ -247,7 +271,7 @@ export class Strength implements Registrable&lt;StrengthSummary&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-11T21:51:43.514Z
+                at 2026-03-12T12:04:20.647Z
             </div>
         <script src="prettify.js"></script>
         <script>

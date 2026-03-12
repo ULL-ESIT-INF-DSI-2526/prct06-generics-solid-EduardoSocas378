@@ -7,7 +7,8 @@
     "doc": "typedoc",
     "test": "vitest run",
     "coverage-ej2": "vitest run --coverage --coverage.include=\"src/ejercicio-2/**\"",
-    "coverage-ej3": "vitest run --coverage --coverage.include=\"src/ejercicio-3/**\""
+    "coverage-ej3": "vitest run --coverage --coverage.include=\"src/ejercicio-3/**\"",
+    "coverage-pe101": "vitest run --coverage --coverage.include=\"src/ejercicio-pe101/**\""
   },
   "repository": {
     "type": "git",

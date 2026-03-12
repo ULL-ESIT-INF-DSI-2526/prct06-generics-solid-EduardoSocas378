@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run tests with coverage
-        run: npm run coverage-ej3
+        run: npm run coverage-pe101
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2.3.6
         with:
